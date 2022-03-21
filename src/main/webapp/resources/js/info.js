@@ -108,12 +108,13 @@ function checkParentEmail(){
 	let emailform=document.getElementById("emailform");
 	emailform=emailform.options[emailform.selectedIndex].text;
 	const pEmail=document.getElementsByName("pEmail")[0].value;
-		alert(pEmail+emailform);
 	if(pEmail==""){
 		alert("등록할 부모님의 이메일을 입력해주세요.");
 	}else{
-		const data="pEmail="+pEmail;
-		//getAjaxData("CheckParentEmail",data,"confirmPr","post");	
+		emailform=(emailform=="직접입력"?"":emailform);
+		const data="pEmail="+pEmail+emailform;
+		alert();
+		getAjaxData("CheckParentEmail",data,"confirmPr","post");	
 	}
 }
 function confirmPr(pPrInfo){
